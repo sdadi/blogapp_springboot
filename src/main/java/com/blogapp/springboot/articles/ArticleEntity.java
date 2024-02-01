@@ -2,10 +2,7 @@ package com.blogapp.springboot.articles;
 
 import com.blogapp.springboot.users.UserEntity;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
@@ -15,7 +12,10 @@ import java.util.Date;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter
+@Builder
 @Entity(name = "articles")
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class ArticleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -43,7 +43,7 @@ public class ArticleEntity {
     private Date CreatedDate;
 
     @ManyToOne
-    @JoinColumn(name = "author_Id",nullable = false)
+    @JoinColumn(name = "authorId",nullable = false)
     private UserEntity author;
 
 }

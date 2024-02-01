@@ -14,6 +14,8 @@ import org.springframework.lang.Nullable;
 @Getter
 @Setter
 @ToString
+@Builder
+@AllArgsConstructor
 @RequiredArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 
@@ -33,10 +35,10 @@ public class CommentEntity {
     private Date CreatedDate;
 
     @ManyToOne
-    @JoinColumn(name="article_Id", nullable = false)
+    @JoinColumn(name="articleId", nullable = false)
     private ArticleEntity article;
 
     @ManyToOne
-    @JoinColumn(name="author_Id", nullable = false)
+    @JoinColumn(name="authorId", nullable = false)
     private UserEntity author;
 }
